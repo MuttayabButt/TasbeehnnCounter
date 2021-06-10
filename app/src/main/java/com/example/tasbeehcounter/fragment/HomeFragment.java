@@ -50,6 +50,7 @@ public class HomeFragment extends Fragment { //implements OnBackPressed{
 
     public static Vibrator vibrator;
 //hjghhjgh
+    //gfghfghfgh
     public static int counter = 0;
 
     AlertDialog.Builder builder;

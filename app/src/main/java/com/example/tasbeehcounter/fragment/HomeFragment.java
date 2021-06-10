@@ -49,12 +49,10 @@ public class HomeFragment extends Fragment { //implements OnBackPressed{
     SharedPreferences.Editor editor;
 
     public static Vibrator vibrator;
-
+//hjghhjgh
     public static int counter = 0;
 
     AlertDialog.Builder builder;
-
-
     public HomeFragment() {
         // Required empty public constructor
     }

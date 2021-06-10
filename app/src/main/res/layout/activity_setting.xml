@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settingActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.SettingActivity"
+    android:background="@drawable/colors"
+    >
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vibrate"
+        android:layout_marginTop="8dp"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="46dp"
+         />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dark Mode"
+        android:layout_marginTop="39dp"
+        tools:layout_editor_absoluteX="241dp"
+        tools:layout_editor_absoluteY="82dp"
+         />
+</RelativeLayout>

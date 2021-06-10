@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       >
+
+   <EditText
+       android:id="@+id/eT"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:hint="Zikr"
+       android:layout_marginRight="32dp"
+       android:layout_marginTop="16dp"
+       />
+
+   <ImageButton
+       android:id="@+id/imageButton1"
+       android:layout_width="40dp"
+       android:layout_height="40dp"
+       android:layout_marginTop="16dp"
+       android:layout_marginRight="8dp"
+       android:background="#FFA9AC"
+       android:src="@drawable/ic_saved"
+       />
+   </LinearLayout>
+
+   <com.google.android.material.button.MaterialButton
+       android:id="@+id/btnClear"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="60dp"
+       android:text="Clear"
+       android:textAllCaps="false"
+       android:layout_marginLeft="220dp"
+       />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+
+   <TextView
+       android:id="@+id/tvCounts"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="180dp"
+       android:text="0"
+       android:textSize="70dp"
+       android:layout_marginLeft="100dp"
+       />
+
+   <com.google.android.material.button.MaterialButton
+       android:id="@+id/btnInc"
+       android:layout_width="70dp"
+       android:layout_height="79dp"
+      android:textSize="30dp"
+       android:textStyle="bold"
+       app:cornerRadius="200dp"
+
+       android:layout_marginLeft="119dp"
+       android:text="+"
+       />
+
+   <com.google.android.material.button.MaterialButton
+       android:id="@+id/btnDec"
+       android:layout_width="70dp"
+       android:layout_height="79dp"
+       android:textSize="30dp"
+       android:textStyle="bold"
+       android:text="-"
+       app:cornerRadius="60dp"
+       />
+
+
+   <Button
+       android:id="@+id/btnRecord"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:text="Record"
+
+       />
+
+   <TextView
+       android:id="@+id/tvGet"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="90 total"
+       android:gravity="center"
+       android:textSize="30dp"
+       android:layout_marginTop="10dp"
+       />
+
+
+</LinearLayout>
+
+</FrameLayout>

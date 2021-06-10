@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+
+        android:layout_marginTop="5dp"
+        android:elevation="8dp"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/colors"
+            >
+            <ImageView
+                android:id="@+id/ivCard"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:src="@drawable/tasbeeh"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="zikr :"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="30dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvZikr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  Zikr"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="80dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Counts :"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="30dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvAddition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Counts"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="60dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/ivDel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="125dp"
+                    android:background="@drawable/colors"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    />
+
+
+
+                <ImageButton
+                    android:id="@+id/ivShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_share"
+                    android:layout_marginLeft="21dp"
+                    android:background="@drawable/colors"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

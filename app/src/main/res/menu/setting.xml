@@ -10,6 +10,10 @@
         android:id="@+id/Rate_app"
         android:title="Rate app"
         />
+    <item
+        android:id="@+id/intelligent"
+        android:title="Intelligent"
+        />
 
 <!--    <item-->
 <!--        android:id="@+id/restart"-->

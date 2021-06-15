@@ -120,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Rate_app:
 
                 break;
+            case R.id.intelligent:
+                startActivity(new Intent(MainActivity.this,IntelligentActivity.class));
+                break;
 
 
         }
@@ -137,11 +140,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-
-//       tellFragments();
-//       super.onBackPressed();
-
 
 
         if(doubleBackToExitPressedOnce)

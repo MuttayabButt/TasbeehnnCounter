@@ -3,17 +3,20 @@ package com.example.tasbeehcounter.fragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +28,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tasbeehcounter.R;
+import com.example.tasbeehcounter.activity.IntelligentActivity;
 import com.example.tasbeehcounter.activity.MainActivity;
 import com.example.tasbeehcounter.db.DbHelper;
 import com.example.tasbeehcounter.model.Counter;
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
+
+import static android.content.Context.LOCATION_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 
 
@@ -41,19 +48,29 @@ public class HomeFragment extends Fragment { //implements OnBackPressed{
     MaterialButton btnInc,btnDec;
     ImageButton btnSave;
     MaterialButton btnClear;
-    Button btnRecord;
-    TextView tvGet;
     int time;
+    Button record;
+    TextView tvv;
+
+    ArrayList<Integer> arrayList=new ArrayList<>();
+    CountDownTimer timer;
+    int timezzzz = 0;
+    Button btnStop;
+    int average;
+
+
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
 
     public static Vibrator vibrator;
-//hjghhjgh
-    //gfghfghfgh
+ 
     public static int counter = 0;
 
     AlertDialog.Builder builder;
+    private int sum;
+    private int get=0;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -76,11 +93,14 @@ public class HomeFragment extends Fragment { //implements OnBackPressed{
         btnDec = view.findViewById(R.id.btnDec);
         btnSave = view.findViewById(R.id.imageButton1);
         btnClear=view.findViewById(R.id.btnClear);
-        btnRecord=view.findViewById(R.id.btnRecord);
-        tvGet=view.findViewById(R.id.tvGet);
+        btnStop=view.findViewById(R.id.stop);
+        record=view.findViewById(R.id.record);
+        tvv=view.findViewById(R.id.tvTv);
+//        counter = preferences.getInt("VAL",0);
+//        textView.setText(String.valueOf(counter));
+//        average = preferences.getInt("averge",2);
+//        tvPut.setText(String.valueOf(average));
 
-        counter = preferences.getInt("VAL",0);
-        textView.setText(String.valueOf(counter));
 
 
         vibrator = (Vibrator) getActivity().getSystemService(VIBRATOR_SERVICE);
@@ -94,19 +114,58 @@ public class HomeFragment extends Fragment { //implements OnBackPressed{
                 editor.putInt("VAL",counter);
                 editor.commit();
 
-                if (Build.VERSION.SDK_INT >= 26) {
+
+            }
+                });
+
+
+
+        if (Build.VERSION.SDK_INT >= 26) {
                     vibrator.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
                 } else {
                     vibrator.vibrate(100);
                     }
 
-            }
-        });
-        btnDec.setOnClickListener(new View.OnClickListener() {
+
+        btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (counter == 0){
+                record.setEnabled(true);
+
+                timer.cancel();
+
+                arrayList.add(timezzzz-1);
+
+                int gett = Integer.parseInt(record.getText().toString().trim());
+
+
+
+//            Q Q   Q?
+//                        ans=enter,not,give,not given
+//                        ans:enter
+//                               ans[]= ans.spir(",");
+//                1,2,3,4
+
+
+
+            }
+        });
+
+
+            btnDec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                calculateAv();
+
+                Toast.makeText(getContext(), "Done", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(),IntelligentActivity.class);
+                intent.putExtra("EdiTtEXTvALUE", tvv.getText().toString());
+                startActivity(intent);
+
+         /*       if (counter == 0){
                     counter++;
                 }
                 counter--;
@@ -119,7 +178,7 @@ public class HomeFragment extends Fragment { //implements OnBackPressed{
                     vibrator.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
                 } else {
                     vibrator.vibrate(100);
-                }
+                }*/
 
             }
         });
@@ -224,21 +283,90 @@ public class HomeFragment extends Fragment { //implements OnBackPressed{
             }
         });
 
+        record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
-    btnRecord.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+                record.setEnabled(false);
+                timer=  new CountDownTimer(100000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        record.setText(String.valueOf(timezzzz));
+                        timezzzz++;
+
+                    }
+                    @Override
+                    public void onFinish() {
+
+                    }
+                };
+                timer.start();
 
 
+            }
+        });
 
-
-
-
-
-        }
-    });
 
         return view;
     }
+
+    public void calculateAv(){
+
+        for (int i=0;i<arrayList.size();i++){
+
+
+            Log.d("my  value"+i," is "+arrayList.get(i));
+            get = get + arrayList.get(i);
+
+        }
+        average=get/arrayList.size();
+        Log.d("my average",average+"");
+        tvv.setText(String.valueOf(average));
+
+
+
+
+
+
+    }
+
+
+
 }
+
+
+
+
+
+//    public static void saveArray(Context ctx, int[] array) {
+//        String strArr = "";
+//        for (int i=0; i<array.length; i++) {
+//            strArr += array[i] + ",";
+//        }
+//        strArr = strArr.substring(0, strArr.length() -1); // get rid of last comma
+//
+//        SharedPreferences.Editor e = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
+//        e.putString("MY_ARRAY", strArr);
+//        e.commit();
+//    }
+//    public static int[] getArray(Context ctx) {
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+//        String str = prefs.getString("MY_ARRAY", null);
+//        String[] strArr = str.split(",");
+//        int[] array = new int[strArr.length];
+//        for (int i=0; i<strArr.length; i++) {
+//            array[i] = new Integer(strArr[i]);
+//        }
+//        return array;
+//    }
+
+//    public double incassoMargherita()
+//    {
+//        double sum = 0;
+//        for(int i = 0; i < arrayList.size(); i++)
+//        {
+//            sum = sum + arrayList.get(i);
+//        }
+//        return sum;
+//    }

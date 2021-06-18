@@ -36,6 +36,9 @@ public class IntelligentActivity extends AppCompatActivity {
     String[] seconds = { "05", "10", "15", "20", "25","30", "35", "40", "45", "50","55", "60"};
     LinearLayout llm2;
     Button btnSet;
+    int second;
+
+    long mins;
 
 
     @Override
@@ -69,18 +72,31 @@ public class IntelligentActivity extends AppCompatActivity {
 
                 Toast.makeText(IntelligentActivity.this, minutes, Toast.LENGTH_SHORT).show();
 
-                long mins= TimeUnit.MINUTES.toSeconds(Long.parseLong(minutes));
+                mins = TimeUnit.MINUTES.toSeconds(Long.parseLong(minutes));
 
-                Log.d("mins",mins+ "");
+                tvTime.setText(String.valueOf(mins));
+
+//                if (tvTime.equals(String.valueOf(mins))){
+//                    myCountDownTimer(mins);
+//                }
+
+               /* new CountDownTimer(10000000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        tvTime.setText("seconds remaining: " + millisUntilFinished / 1000);
+                        //tvTime.setText(String.valueOf(mins));
 
 
+                        //here you can have your logic to set text to edittext
+                    }
 
+                    public void onFinish() {
+                        tvTime.setText("done!");
+                    }
 
-
-
+                }.start();*/
 
             }
-
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -169,6 +185,7 @@ public class IntelligentActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            //    myCountDownTimer(mins);
 
 
 //                btnStart.setEnabled(false);
@@ -250,8 +267,23 @@ public class IntelligentActivity extends AppCompatActivity {
 //        });
     }
 
-
-
+//    private void myCountDownTimer(long mins) {
+//           new CountDownTimer(mins, 1000) {
+//
+//                    public void onTick(long millisUntilFinished) {
+//                        //tvTime.setText("seconds remaining: " + millisUntilFinished / 1000);
+//                        //tvTime.setText(String.valueOf(mins));
+//
+//
+//                        //here you can have your logic to set text to edittext
+//                    }
+//
+//                    public void onFinish() {
+//                        tvTime.setText("done!");
+//                    }
+//
+//                }.start();
+//    }
 
 
 //    @Override

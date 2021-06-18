@@ -26,14 +26,8 @@ import com.example.tasbeehcounter.fragment.HomeFragment;
 import com.example.tasbeehcounter.fragment.ListFragment;
 import com.example.tasbeehcounter.fragment.OnBackPressed;
 import com.example.tasbeehcounter.fragment.SetTarget;
-import com.example.tasbeehcounter.model.Counter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.List;
-
-import static com.example.tasbeehcounter.fragment.HomeFragment.counter;
-import static com.example.tasbeehcounter.fragment.HomeFragment.editText;
-import static com.example.tasbeehcounter.fragment.HomeFragment.textView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         //initializing id's
         bottomNavigationView = findViewById(R.id.bottom_nav);

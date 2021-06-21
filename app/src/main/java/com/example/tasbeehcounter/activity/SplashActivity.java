@@ -45,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
             setContentView(R.layout.activity_splash);
             imageView =findViewById(R.id.iv2);
 
-            getSupportActionBar().hide();
+            //getSupportActionBar().hide();
 
             imageView.animate()
                     .alpha(1)

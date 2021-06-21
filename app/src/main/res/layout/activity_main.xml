@@ -6,8 +6,14 @@
     android:layout_height="match_parent"
     android:id="@+id/containerr"
     tools:context=".activity.MainActivity"
-    android:background="@drawable/colors"
-    >
+    android:background="@android:color/white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        app:titleTextColor="@android:color/holo_red_dark"
+        android:background="@drawable/colors"/>
 
     <FrameLayout
         android:id="@+id/frame"
@@ -21,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:visibility="gone"
         app:menu="@menu/bottom_nav"
 
         android:background="@drawable/colors"

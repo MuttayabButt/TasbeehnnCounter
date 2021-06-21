@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="id_actvityScreenTitles">
+
+        <item></item>
+        <item> HOME </item>
+        <item> LIST </item>
+        <item> INTELLIGENT COUNTER </item>
+        <item> SET TARGET </item>
+        <item> SETTINGS </item>
+        <item> RATE OUR APP </item>
+        <item> ABOUT US </item>
+
+    </string-array>
+
+    <array name="id_actvityScreenIcons">
+
+        <item>@drawable/ic_baseline_cancel_24</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_baseline_self_improvement_24</item>
+        <item>@drawable/ic_baseline_restaurant_24</item>
+        <item>@drawable/ic_baseline_settings_24</item>
+        <item>@drawable/ic_baseline_directions_bus_24</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_baseline_exit_to_app_24</item>
+
+    </array>
+    
+</resources>

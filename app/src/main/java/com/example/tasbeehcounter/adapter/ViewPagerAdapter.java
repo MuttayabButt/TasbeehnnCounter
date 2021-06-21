@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.tasbeehcounter.R;
 
 public class ViewPagerAdapter extends PagerAdapter {
@@ -19,9 +20,9 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     int images[] = {
 
-            R.drawable.cc,
-            R.drawable.aa,
-            R.drawable.bb,
+            R.raw.animones,
+            R.raw.animtwos,
+            R.raw.animfours,
 
     };
 
@@ -70,7 +71,11 @@ public class ViewPagerAdapter extends PagerAdapter {
         TextView slideHeading = (TextView) view.findViewById(R.id.texttitle);
         //TextView slideDesciption = (TextView) view.findViewById(R.id.textdeccription);
 
-        slidetitleimage.setImageResource(images[position]);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView)view
+                .findViewById(R.id.animationView);
+
+        lottieAnimationView.setAnimation(images[position]);
+        //slidetitleimage.setImageResource(images[position]);
         slideHeading.setText(headings[position]);
         //slideDesciption.setText(description[position]);
 

@@ -83,6 +83,7 @@ public class MySplash extends AppCompatActivity {
 
         setUpindicator(0);
         mSLideViewPager.addOnPageChangeListener(viewListener);
+
     }
 
     private void setUpindicator(int position) {
